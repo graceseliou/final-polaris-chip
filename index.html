@@ -8,35 +8,50 @@
   <base href="/">
 
   <style>
-    :root,
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #ededed;
+    .spacing {
+      text-align: center;
+      justify-content: center;
     }
-    polaris-chip {
-      margin: 16px;
+
+    .website-content {
+      font-family: serif;
+    }
+
+    .image-gallery {
+      margin: auto; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pictures img {
+      width: 150px;
+      height: 150px;
     }
   </style>
-  <title>polaris-chip / my-card</title>
 </head>
 
+<script type="module" src="./src/image-gallery.js"></script>
+
 <body>
-  <h1>polaris-chip</h1>
-  <!-- this is going to do whatever the tag's defaults are -->
-  <polaris-chip title="News of Record" link="https://psu.edu/"></polaris-chip>
-  <polaris-chip title="Faculty and Staff"></polaris-chip>
-  <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
-  <polaris-chip title="Grants and donations"></polaris-chip>
+  <div class="spacing">
+    
+    <div class="website-content">
+      website introduction
+      
+      <image-gallery class="image-gallery"></image-gallery>
 
-  <h1>my-card</h1>
-  <my-card></my-card>
+      <div class="pictures">
+        <img src="https://i.pinimg.com/originals/3e/ca/43/3eca437f53ae912f9503de5b6d4855c8.jpg">
+      </div>
+      website content (words words words)
+    </div>
 
-  <!-- this is what is bringing in the definition for this tag -->
-  <script type="module" src="./src/polaris-chip.js"></script>
-  <script type="module" src="./src/my-card.js"></script>
+  </div>
 </body>
+
+<script>
+</script>
 
 </html>

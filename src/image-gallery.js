@@ -127,10 +127,10 @@ export class ImageGallery extends DDD {
         <div class="page-buttons">
           
           <button class="left-button" @click="${this.leftClick}">
-            <-
+            <
           </button>
           <button class = "right-button" @click="${this.rightClick}">
-            ->
+            >
           </button>
 
         </div>

@@ -9,12 +9,15 @@ export class ImageGallery extends DDD {
 
   constructor() {
     super();
+    this.caption="picture caption";
     this.description="description of picture";
+    
     this.images=["https://i.pinimg.com/originals/3e/ca/43/3eca437f53ae912f9503de5b6d4855c8.jpg",
     "https://i.pinimg.com/originals/13/2d/03/132d03a73d801a00d8ce8bb539b99d0e.jpg",
     "https://i.pinimg.com/originals/d2/f9/8e/d2f98e16fd3148b2c7cb1378d501d6c9.jpg",
     "https://i.pinimg.com/originals/ab/d8/67/abd8677623fa03050229c70060eba76a.jpg",
-    "https://images.immediate.co.uk/production/volatile/sites/28/2019/02/have-these-funny-baby-photo-trends-gone-too-far_154133-6fb0bb7.jpg?quality=90&resize=549,366"];
+    "https://i.pinimg.com/564x/9f/20/54/9f205457aa706fa88fe905df7698458c.jpg"]
+    
     this.imageNumber=1;
     this.pages=5;
   }
@@ -26,12 +29,13 @@ export class ImageGallery extends DDD {
       }
 
       .opened-wrapper {
-        margin: 8px;
-        padding: 8px;
-        width: 550px;
-        height: 550px;
+        margin: var(--ddd-spacing-2);
+        padding: var(--ddd-spacing-2);
+        width: 750px;
+        height: 750px;
         background-color: pink;
         color: black;
+        border: 2px solid black;
         border-radius: var(--ddd-radius-md);
       }
 
@@ -42,17 +46,17 @@ export class ImageGallery extends DDD {
       }
 
       .page-nav {
-        margin: 8px;
-        font-size: 16px;
+        margin: var(--ddd-spacing-2);
+        font-size: 18px;
         justify-content: left;
       }
 
-      .description {
+      .caption {
         justify-content: center;
       }
         
       .close-button {
-        margin: 8px;
+        margin: var(--ddd-spacing-2);
         justify-content: right;
         cursor: pointer;
       }
@@ -60,22 +64,28 @@ export class ImageGallery extends DDD {
       .opened-image img {
         position: absolute;
         margin-left: 100px;
-        margin-top: 55px;
-        width: 350px;
-        height: 350px;
+        margin-top: 40px;
+        width: 550px;
+        height: 550px;
         display: block;
+        border: 2px solid black;
         border-radius: var(--ddd-radius-md);
+      }
+
+      .description {
+        margin-top: 600px;
+        justify-content: center;
       }
 
       .page-buttons {
         position: absolute;
         display: flex;
         justify-content: space-between;
-        width: 530px;
+        width: 735px;
         display: flex;
-        margin: 8px;
+        margin: var(--ddd-spacing-2);
         align-items: center;
-        margin-top: 480px;
+        margin-top: 60px;
       }
 
       .left-button {
@@ -101,37 +111,37 @@ export class ImageGallery extends DDD {
   render() {
     return html`
     <div class="website-wrapper">
-
       <div class="opened-wrapper">
         
         <div class="top-row">
-          
           <div class="page-nav">
             ${this.imageNumber} / ${this.pages}
           </div>
           
-          <div class="description"> 
-            ${this.description}
+          <div class="caption"> 
+            ${this.caption}
           </div>
+          
           <button class="close-button">
             X
           </button>
-
         </div>
 
         <div class="opened-image">
           <img src= ${this.images[this.imageNumber-1]}>
         </div>
 
+        <div class="description">
+            ${this.description}
+        </div>
+
         <div class="page-buttons">
-          
           <button class="left-button" @click="${this.leftClick}">
             <
           </button>
           <button class = "right-button" @click="${this.rightClick}">
             >
           </button>
-
         </div>
 
       </div>
@@ -161,6 +171,7 @@ export class ImageGallery extends DDD {
 
   static get properties() {
     return {
+      caption: { type: String },
       description: { type: String },
       image: { type: String },
       imageNumber: { type: String },

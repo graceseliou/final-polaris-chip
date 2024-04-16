@@ -23,7 +23,6 @@ export class ImageGallery extends DDD {
     return css`
       :host {
         display: block;
-        font-family: serif;
       }
 
       .opened-wrapper {

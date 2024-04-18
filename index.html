@@ -18,22 +18,39 @@
       font-family: serif;
     }
 
+    .title {
+        margin-top: -55px;
+        margin-bottom: var(--ddd-spacing-8);
+        font-size: 24px;
+        padding: var(--ddd-spacing-5);
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1000;
+    }
+
     .media-image {
       position: relative;
     }
 
     .image-gallery {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1000;
-      /* margin: auto; 
+      margin: auto; 
       display: flex; 
       flex-direction: column; 
       align-items: center;
-      justify-content: center; */
+      justify-content: center;
+    }
+
+    .content-section{
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text {
+      font-size: 18px;
     }
 
   </style>
@@ -42,13 +59,57 @@
 <body>
   <div class="spacing">
     <div class="website-content">
+      <div class="title">website title</div>
 
-      <media-image class="media-image"></media-image>
+      <image-gallery class="image-gallery"></image-gallery>
 
-      <!-- when a picture from media-image is clicked, image-gallery opens 
-      starting from the picture that was clicked -->
+      <div class='content-section'>
+        <media-image
+          caption="beach day"
+          picture="https://i.pinimg.com/originals/3e/ca/43/3eca437f53ae912f9503de5b6d4855c8.jpg">
+        </media-image>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+      </div>
 
-      <!-- <image-gallery class="image-gallery"></image-gallery> -->
+      <div class='content-section'>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+        <media-image
+        caption="mirroring"
+        picture="https://i.pinimg.com/originals/d2/f9/8e/d2f98e16fd3148b2c7cb1378d501d6c9.jpg">
+        </media-image>
+      </div>
+
+      <div class='content-section'>
+        <media-image
+          caption="countryside"
+          picture="https://i.pinimg.com/564x/bc/36/06/bc3606449bacdc90cbc43acbaba00a43.jpg">
+        </media-image>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+      </div>
+
+      <div class='content-section'>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+        <media-image
+        caption="just a girl"
+        picture="https://i.pinimg.com/564x/6d/21/16/6d2116df932e51dad01e5a5672b0938c.jpg">
+        </media-image>
+      </div>
+
+      <div class='content-section'>
+        <media-image
+        caption="fish dog"
+        picture="https://i.pinimg.com/564x/9f/20/54/9f205457aa706fa88fe905df7698458c.jpg">
+        </media-image>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+      </div>
+
+      <div class='content-section'>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+        <media-image
+        caption="cat blep"
+        picture="https://i.pinimg.com/564x/3c/99/1f/3c991f14cd919d83f1528464b86b91be.jpg">
+        </media-image>
+      </div>
 
     </div>
   </div>
@@ -57,8 +118,14 @@
 <script type="module" src="./src/image-gallery.js"></script>
 <script type="module" src="./src/media-image.js"></script>
 
-<script>
+<!-- <script>
+  const mediaImage = document.querySelector('media-image');
+  const imageGallery = document.querySelector('image-gallery');
 
-</script>
+  mediaImage.addEventListener('open-image-gallery', (event) => {
+    const { index } = event.detail;
+    imageGallery.open(index)
+  });
+</script> -->
 
 </html>

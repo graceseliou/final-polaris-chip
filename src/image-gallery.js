@@ -12,22 +12,48 @@ export class ImageGallery extends DDD {
     this.caption="picture caption";
     this.description="description of picture";
     
-    this.images=["https://i.pinimg.com/originals/3e/ca/43/3eca437f53ae912f9503de5b6d4855c8.jpg",
-    "https://i.pinimg.com/originals/13/2d/03/132d03a73d801a00d8ce8bb539b99d0e.jpg",
-    "https://i.pinimg.com/originals/d2/f9/8e/d2f98e16fd3148b2c7cb1378d501d6c9.jpg",
-    "https://i.pinimg.com/originals/ab/d8/67/abd8677623fa03050229c70060eba76a.jpg",
-    "https://i.pinimg.com/564x/9f/20/54/9f205457aa706fa88fe905df7698458c.jpg"]
+    this.images=[];
     
     this.imageNumber=1;
-    this.pages=5;
+    this.pages=6;
 
-    this.opened=false;
+    this.opened=false; //default closed
+  }
+
+  firstUpdated(){
+    var data = document.querySelectorAll('media-image');
+    data.forEach((picture) => {
+      this.images.push(picture.getAttribute('picture'));
+    })
+
+    console.log(this.images)
+
+    document.addEventListener('open-image-gallery', (e) => {
+        var data = e.target.attributes.picture.nodeValue;
+        this.imageNumber = this.images.indexOf(data);
+        this.opened = true;
+    })
+
+
   }
 
   static get styles() {
     return css`
       :host {
         display: block;
+      }
+
+      .fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+        z-index: 1000; /* Ensure it's above other content */
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .opened-wrapper {
@@ -39,6 +65,7 @@ export class ImageGallery extends DDD {
         color: black;
         border: 2px solid black;
         border-radius: var(--ddd-radius-md);
+        overflow: auto;
       }
 
       .top-row {
@@ -122,39 +149,29 @@ export class ImageGallery extends DDD {
   }
 
   render() {
+    if (!this.opened){
+      return html``;
+    }
+
     return html`
-    <div class="website-wrapper">
+    <div class="fullscreen">
       <div class="opened-wrapper">
         
         <div class="top-row">
-          <div class="page-nav">
-            ${this.imageNumber} / ${this.pages}
-          </div>
-          
-          <div class="caption"> 
-            ${this.caption}
-          </div>
-          
-          <button class="close-button">
-            X
-          </button>
+          <div class="page-nav">${this.imageNumber+1} / ${this.pages}</div>
+          <div class="caption">${this.caption}</div>
+          <button class="close-button" @click="${this.closeGallery}">X</button>
         </div>
 
         <div class="opened-image">
-          <img src= ${this.images[this.imageNumber-1]}>
+          <img src= ${this.images[this.imageNumber]}>
         </div>
 
-        <div class="description">
-            ${this.description}
-        </div>
+        <div class="description">${this.description}</div>
 
         <div class="page-buttons">
-          <button class="left-button" @click="${this.leftClick}">
-            <
-          </button>
-          <button class = "right-button" @click="${this.rightClick}">
-            >
-          </button>
+          <button class="left-button" @click="${this.leftClick}"><</button>
+          <button class = "right-button" @click="${this.rightClick}">></button>
         </div>
 
       </div>
@@ -162,22 +179,39 @@ export class ImageGallery extends DDD {
     `;
   }
 
+  open(index) {
+    this.imageNumber = index + 1;
+    this.opened = true;
+    
+    this.requestUpdate();
+  }
+
+  closeGallery() {
+    this.opened = false;
+
+    this.requestUpdate();
+  }
+
   rightClick() {
-    if (this.imageNumber < this.pages)
-      this.imageNumber = this.imageNumber+1;
-    else {
-      this.imageNumber=1;
-    }
+    this.imageNumber = (this.imageNumber + 1) % this.pages;
+
+    // if (this.imageNumber < this.pages)
+    //   this.imageNumber = this.imageNumber+1;
+    // else {
+    //   this.imageNumber=1;
+    // }
     
     this.requestUpdate();
   }
 
   leftClick() {
-    if(this.imageNumber > 1)
-      this.imageNumber = this.imageNumber-1;
-    else {
-      this.imageNumber = this.pages;
-    }
+    this.imageNumber = (this.imageNumber - 1 + this.pages) % this.pages;
+
+    // if(this.imageNumber > 1)
+    //   this.imageNumber = this.imageNumber-1;
+    // else {
+    //   this.imageNumber = this.pages;
+    // }
     
     this.requestUpdate();
   }

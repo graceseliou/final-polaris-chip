@@ -18,19 +18,26 @@
       font-family: serif;
     }
 
+    .media-image {
+      position: relative;
+    }
+
     .image-gallery {
-      margin: auto; 
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      /* margin: auto; 
       display: flex; 
       flex-direction: column; 
       align-items: center;
-      justify-content: center;
+      justify-content: center; */
     }
 
   </style>
 </head>
-
-<script type="module" src="./src/image-gallery.js"></script>
-<script type="module" src="./src/media-image.js"></script>
 
 <body>
   <div class="spacing">
@@ -41,13 +48,17 @@
       <!-- when a picture from media-image is clicked, image-gallery opens 
       starting from the picture that was clicked -->
 
-      <image-gallery class="image-gallery"></image-gallery>
+      <!-- <image-gallery class="image-gallery"></image-gallery> -->
 
     </div>
   </div>
 </body>
 
+<script type="module" src="./src/image-gallery.js"></script>
+<script type="module" src="./src/media-image.js"></script>
+
 <script>
+
 </script>
 
 </html>

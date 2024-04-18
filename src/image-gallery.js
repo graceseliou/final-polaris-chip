@@ -20,6 +20,8 @@ export class ImageGallery extends DDD {
     
     this.imageNumber=1;
     this.pages=5;
+
+    this.opened=false;
   }
 
   static get styles() {
@@ -33,7 +35,7 @@ export class ImageGallery extends DDD {
         padding: var(--ddd-spacing-2);
         width: 750px;
         height: 750px;
-        background-color: pink;
+        background-color: lightblue;
         color: black;
         border: 2px solid black;
         border-radius: var(--ddd-radius-md);
@@ -108,6 +110,17 @@ export class ImageGallery extends DDD {
     `;
   }
 
+  static get properties() {
+    return {
+      caption: { type: String },
+      description: { type: String },
+      image: { type: String },
+      imageNumber: { type: String },
+      pages: { type: String },
+      opened: { type: Boolean },
+    };
+  }
+
   render() {
     return html`
     <div class="website-wrapper">
@@ -169,15 +182,6 @@ export class ImageGallery extends DDD {
     this.requestUpdate();
   }
 
-  static get properties() {
-    return {
-      caption: { type: String },
-      description: { type: String },
-      image: { type: String },
-      imageNumber: { type: String },
-      pages: { type: String },
-    };
-  }
 }
 
 globalThis.customElements.define(ImageGallery.tag, ImageGallery);

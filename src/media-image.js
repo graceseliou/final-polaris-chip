@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { DDD } from "@lrnwebcomponents/d-d-d/d-d-d.js";
 
+
 export class MediaImage extends DDD {
 
     static get tag() {
@@ -59,7 +60,6 @@ export class MediaImage extends DDD {
             .pictures img {
                 width: 200px;
                 height: 200px;
-                padding: 10px;
                 border: 2px solid black;
                 border-radius: var(--ddd-radius-md);
                 transition: transform 0.3s ease-in;
@@ -77,13 +77,21 @@ export class MediaImage extends DDD {
         `;
     }
 
+    static get properties() {
+        return {
+            caption: { type: String },
+            picture: { type: String },
+            text: { type: String },
+        };
+    }
+
     render() {
         return html`
 
         <div class="title">website title</div>
 
         <div class="wrapper-1">
-            <div class="pictures" id="p1" @click="${this.openImageGallery}">
+            <div class="pictures" id="p1">
                 <img src="https://i.pinimg.com/originals/3e/ca/43/3eca437f53ae912f9503de5b6d4855c8.jpg">
                 <div class="caption" id="c1">${this.caption}</div>
             </div>
@@ -103,7 +111,7 @@ export class MediaImage extends DDD {
         </div>
 
         <div class="wrapper-1">
-            <div class="pictures" id="p3" @click="${this.openImageGallery}">
+            <div class="pictures" id="p3">
                 <img src="https://i.pinimg.com/originals/d2/f9/8e/d2f98e16fd3148b2c7cb1378d501d6c9.jpg">
                 <div class="caption" id="c3">${this.caption}</div>
             </div>
@@ -135,13 +143,7 @@ export class MediaImage extends DDD {
         `;
     }
 
-    static get properties() {
-        return {
-            caption: { type: String },
-            picture: { type: String },
-            text: { type: String },
-        };
-    }
+
 }
 
 globalThis.customElements.define(MediaImage.tag, MediaImage);

@@ -8,8 +8,12 @@
   <base href="/">
 
   <style>
+    body {
+      background-color: #fefbea;
+    }
+
     .spacing {
-      margin: 100px;
+      margin: var(--ddd-spacing-25);
       text-align: center;
       justify-content: center;
     }
@@ -19,14 +23,15 @@
     }
 
     .title {
-        margin-top: -55px;
-        margin-bottom: var(--ddd-spacing-8);
-        font-size: 24px;
-        padding: var(--ddd-spacing-5);
-        position: sticky;
-        top: 0;
-        background-color: white;
-        z-index: 1000;
+      font-weight: bold;
+      margin-top: -55px;
+      margin-bottom: var(--ddd-spacing-8);
+      font-size: var(--ddd-spacing-8);
+      padding: var(--ddd-spacing-5);
+      position: sticky;
+      top: 0;
+      background-color: #fefbea;
+      z-index: 1000;
     }
 
     .media-image {
@@ -50,7 +55,7 @@
     }
 
     .text {
-      font-size: 18px;
+      font-size: var(--ddd-spacing-4);
     }
 
   </style>
@@ -59,14 +64,15 @@
 <body>
   <div class="spacing">
     <div class="website-content">
-      <div class="title">website title</div>
+      <div class="title">pinterest fire</div>
 
       <image-gallery class="image-gallery"></image-gallery>
 
       <div class='content-section'>
         <media-image
-          caption="beach day"
-          picture="https://i.pinimg.com/originals/3e/ca/43/3eca437f53ae912f9503de5b6d4855c8.jpg">
+          captions="beach day"
+          picture="https://i.pinimg.com/originals/3e/ca/43/3eca437f53ae912f9503de5b6d4855c8.jpg"
+          description="day at the beach">
         </media-image>
         <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
       </div>
@@ -74,31 +80,17 @@
       <div class='content-section'>
         <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
         <media-image
-        caption="mirroring"
-        picture="https://i.pinimg.com/originals/d2/f9/8e/d2f98e16fd3148b2c7cb1378d501d6c9.jpg">
+        captions="mirroring"
+        picture="https://i.pinimg.com/originals/d2/f9/8e/d2f98e16fd3148b2c7cb1378d501d6c9.jpg"
+        description="distorted reflection of hand in water-filled mirror">
         </media-image>
       </div>
 
       <div class='content-section'>
         <media-image
-          caption="countryside"
-          picture="https://i.pinimg.com/564x/bc/36/06/bc3606449bacdc90cbc43acbaba00a43.jpg">
-        </media-image>
-        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-      </div>
-
-      <div class='content-section'>
-        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-        <media-image
-        caption="just a girl"
-        picture="https://i.pinimg.com/564x/6d/21/16/6d2116df932e51dad01e5a5672b0938c.jpg">
-        </media-image>
-      </div>
-
-      <div class='content-section'>
-        <media-image
-        caption="fish dog"
-        picture="https://i.pinimg.com/564x/9f/20/54/9f205457aa706fa88fe905df7698458c.jpg">
+          captions="countryside"
+          picture="https://i.pinimg.com/564x/bc/36/06/bc3606449bacdc90cbc43acbaba00a43.jpg"
+          description="calm sunset on the countryside - reminiscent of that one scene from 'call me by your name'">
         </media-image>
         <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
       </div>
@@ -106,8 +98,27 @@
       <div class='content-section'>
         <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
         <media-image
-        caption="cat blep"
-        picture="https://i.pinimg.com/564x/3c/99/1f/3c991f14cd919d83f1528464b86b91be.jpg">
+        captions="just a girl"
+        picture="https://i.pinimg.com/564x/6d/21/16/6d2116df932e51dad01e5a5672b0938c.jpg"
+        description="literally me">
+        </media-image>
+      </div>
+
+      <div class='content-section'>
+        <media-image
+        captions="fish dog"
+        picture="https://i.pinimg.com/564x/9f/20/54/9f205457aa706fa88fe905df7698458c.jpg"
+        description="the fish had had enough of the dog's tomfoolery. he said, 'you got nothing on me, tiny ahh dog! come at me! i dare you!' the dog stared in shock. gagged, one might even say.">
+        </media-image>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+      </div>
+
+      <div class='content-section'>
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+        <media-image
+        captions="cat blep"
+        picture="https://i.pinimg.com/564x/3c/99/1f/3c991f14cd919d83f1528464b86b91be.jpg"
+        description="little kitty was feeling a wee bit silly goofy at the end of her night">
         </media-image>
       </div>
 

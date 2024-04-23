@@ -9,8 +9,8 @@ export class ImageGallery extends DDD {
 
   constructor() {
     super();
-    this.caption="picture caption";
-    this.description="description of picture";
+    this.captionsArray=[];
+    this.descriptionsArray=[];
     
     this.images=[];
     
@@ -24,17 +24,24 @@ export class ImageGallery extends DDD {
     var data = document.querySelectorAll('media-image');
     data.forEach((picture) => {
       this.images.push(picture.getAttribute('picture'));
+      this.captionsArray.push(picture.getAttribute('captions'));
+      this.descriptionsArray.push(picture.getAttribute('description'));
+
+      
     })
+
+    console.log(this.images)
+    console.log(this.captionsArray)
+    console.log(this.descriptionsArray)
 
     console.log(this.images)
 
     document.addEventListener('open-image-gallery', (e) => {
         var data = e.target.attributes.picture.nodeValue;
         this.imageNumber = this.images.indexOf(data);
+
         this.opened = true;
     })
-
-
   }
 
   static get styles() {
@@ -61,7 +68,7 @@ export class ImageGallery extends DDD {
         padding: var(--ddd-spacing-2);
         width: 750px;
         height: 750px;
-        background-color: lightblue;
+        background-color: var(--ddd-theme-default-skyLight);
         color: black;
         border: 2px solid black;
         border-radius: var(--ddd-radius-md);
@@ -76,12 +83,8 @@ export class ImageGallery extends DDD {
 
       .page-nav {
         margin: var(--ddd-spacing-2);
-        font-size: 18px;
+        font-size: var(--ddd-spacing-4);
         justify-content: left;
-      }
-
-      .caption {
-        justify-content: center;
       }
         
       .close-button {
@@ -102,8 +105,9 @@ export class ImageGallery extends DDD {
       }
 
       .description {
-        margin-top: 600px;
+        margin-top: 610px;
         justify-content: center;
+        overflow: auto;
       }
 
       .page-buttons {
@@ -114,7 +118,7 @@ export class ImageGallery extends DDD {
         display: flex;
         margin: var(--ddd-spacing-2);
         align-items: center;
-        margin-top: 60px;
+        margin-top: var(--ddd-spacing-6);
       }
 
       .left-button {
@@ -130,7 +134,7 @@ export class ImageGallery extends DDD {
         min-height: 200px;
         height: auto;
         max-height: 400px;
-        padding: 10px;
+        padding: var(--ddd-spacing-3);
         margin: 0 auto;
       }
 
@@ -139,8 +143,8 @@ export class ImageGallery extends DDD {
 
   static get properties() {
     return {
-      caption: { type: String },
-      description: { type: String },
+      captionsArray: { type: String },
+      descriptionsArray: { type: String },
       image: { type: String },
       imageNumber: { type: String },
       pages: { type: String },
@@ -159,7 +163,7 @@ export class ImageGallery extends DDD {
         
         <div class="top-row">
           <div class="page-nav">${this.imageNumber+1} / ${this.pages}</div>
-          <div class="caption">${this.caption}</div>
+          <div class="caption">${this.captionsArray[this.imageNumber]}</div>
           <button class="close-button" @click="${this.closeGallery}">X</button>
         </div>
 
@@ -167,7 +171,7 @@ export class ImageGallery extends DDD {
           <img src= ${this.images[this.imageNumber]}>
         </div>
 
-        <div class="description">${this.description}</div>
+        <div class="description">${this.descriptionsArray[this.imageNumber]}</div>
 
         <div class="page-buttons">
           <button class="left-button" @click="${this.leftClick}"><</button>
@@ -194,25 +198,12 @@ export class ImageGallery extends DDD {
 
   rightClick() {
     this.imageNumber = (this.imageNumber + 1) % this.pages;
-
-    // if (this.imageNumber < this.pages)
-    //   this.imageNumber = this.imageNumber+1;
-    // else {
-    //   this.imageNumber=1;
-    // }
-    
     this.requestUpdate();
   }
 
   leftClick() {
     this.imageNumber = (this.imageNumber - 1 + this.pages) % this.pages;
-
-    // if(this.imageNumber > 1)
-    //   this.imageNumber = this.imageNumber-1;
-    // else {
-    //   this.imageNumber = this.pages;
-    // }
-    
+ 
     this.requestUpdate();
   }
 
